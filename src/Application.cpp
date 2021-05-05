@@ -5,7 +5,7 @@
 
 Tiny::Application::Application(/* args */)
 {
-    Glib::RefPtr<Gtk::Builder> b = Gtk::Builder::create_from_file("/home/thomas/Documents/Programming/tinychat/tiny_server/res/Window.glade");
+    Glib::RefPtr<Gtk::Builder> b = Gtk::Builder::create_from_file("/home/thomas/Documents/Programming/tiny_chat/tiny_server/res/Window.glade");
     window = new Tiny::Window(b);
     client = new Client("localhost", 18550);
     client->set_callback(this, &Application::message_callback);
