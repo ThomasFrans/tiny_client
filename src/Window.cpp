@@ -30,7 +30,6 @@ void Tiny::Window::display_message(std::string message)
 {
     Gtk::TextView* view;
     _builder->get_widget("textview_messages", view);
-    spdlog::info("whyyyy");
     Glib::RefPtr<Gtk::TextBuffer> _textview_messages_buffer = view->get_buffer();
     std::string full_message("");
     full_message.append(message);

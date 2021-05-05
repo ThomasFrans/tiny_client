@@ -51,6 +51,7 @@ void Tiny::Client::read()
         char buffer[1024] = {0};
         valread = recv( _socket , buffer, 1024, 0);
         if (valread == 0) {exit(EXIT_SUCCESS);};
+        spdlog::info(buffer);
         _callback_fun(_app, std::string(buffer));
         // spdlog::info(buffer);
     }
