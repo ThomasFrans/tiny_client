@@ -16,6 +16,7 @@ namespace Tiny
         Gtk::Widget *_layout;
         void (*_callback_fun) (Tiny::Application* app, std::string message);
         bool on_key_press_event(GdkEventKey *event) override;
+        void on_send_button_press();
     public:
         bool send_message(Gdk::Event *event);
         Window(Glib::RefPtr<Gtk::Builder> b);

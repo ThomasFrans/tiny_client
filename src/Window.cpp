@@ -13,6 +13,9 @@ bool Tiny::Window::send_message(Gdk::Event* event)
 
 Tiny::Window::Window(Glib::RefPtr<Gtk::Builder> b)
 {
+    Gtk::Button *button;
+    b->get_widget("button_send", button);
+    button->signal_pressed().connect(sigc::mem_fun(*this, &Window::on_send_button_press));
 
     _builder = b;
     _builder->get_widget("box_layout", _layout);
@@ -57,4 +60,13 @@ bool Tiny::Window::on_key_press_event(GdkEventKey *event)
         return true;    // Event handled
     }
     return Gtk::ApplicationWindow::on_key_press_event(event);
+}
+
+void Tiny::Window::on_send_button_press()
+{
+        Gtk::Entry* entry;
+        _builder->get_widget("entry_message", entry);
+        Glib::ustring text = entry->get_text();
+        entry->set_text("");
+        _callback_fun(_app, std::string(text));
 }
