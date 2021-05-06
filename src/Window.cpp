@@ -53,7 +53,6 @@ bool Tiny::Window::on_key_press_event(GdkEventKey *event)
     _builder->get_widget("entry_message", entry);
     if (event->keyval == GDK_KEY_Return)
     {
-        spdlog::info("Enter pressed");
         Glib::ustring text = entry->get_text();
         entry->set_text("");
         _callback_fun(_app, std::string(text));

@@ -22,7 +22,7 @@ namespace Tiny
         Tiny::Client *client;
         Application(/* args */);
         ~Application();
-        static void message_callback(Tiny::Application* app, std::string message);
+        static void message_callback(Tiny::Application* app, json);
         void send_message(std::string message);
         static void window_callback(Tiny::Application* app, std::string message);
     };
